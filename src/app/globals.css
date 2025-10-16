@@ -8,78 +8,98 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Shadcn/UI colors - Dark Navy with Silver Accents */
-  --color-background: #0a1628;
+  /* Shadcn/UI colors - Emerald Green with Silver/Gold Accents */
+  --color-background: #0d1f17;
   --color-foreground: #ffffff;
 
-  --color-card: #1a2332;
+  --color-card: #1a2d24;
   --color-card-foreground: #ffffff;
 
-  --color-popover: #1a2332;
+  --color-popover: #1a2d24;
   --color-popover-foreground: #ffffff;
 
-  --color-primary: #c0c8d0;
-  --color-primary-foreground: #0a1628;
+  --color-primary: #10b981;
+  --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1e2938;
+  --color-secondary: #1e3a2e;
   --color-secondary-foreground: #ffffff;
 
-  --color-muted: #2a3544;
-  --color-muted-foreground: #a8b2c0;
+  --color-muted: #2a4538;
+  --color-muted-foreground: #a8c0b8;
 
-  --color-accent: #d4dce8;
-  --color-accent-foreground: #0a1628;
+  --color-accent: #d4af37;
+  --color-accent-foreground: #0d1f17;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --color-border: #3a4556;
-  --color-input: #2a3544;
-  --color-ring: #c0c8d0;
+  --color-border: #3a5548;
+  --color-input: #2a4538;
+  --color-ring: #10b981;
 
-  --color-chart-1: #d4dce8;
-  --color-chart-2: #c0c8d0;
-  --color-chart-3: #a8b2c0;
-  --color-chart-4: #8090a0;
-  --color-chart-5: #5a6878;
+  --color-chart-1: #10b981;
+  --color-chart-2: #d4af37;
+  --color-chart-3: #c0c8d0;
+  --color-chart-4: #b87333;
+  --color-chart-5: #5a7868;
 
-  --color-sidebar: #0a1628;
+  --color-sidebar: #0d1f17;
   --color-sidebar-foreground: #ffffff;
-  --color-sidebar-primary: #c0c8d0;
-  --color-sidebar-primary-foreground: #0a1628;
-  --color-sidebar-accent: #1a2332;
+  --color-sidebar-primary: #10b981;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #1a2d24;
   --color-sidebar-accent-foreground: #ffffff;
-  --color-sidebar-border: #2a3544;
-  --color-sidebar-ring: #c0c8d0;
+  --color-sidebar-border: #2a4538;
+  --color-sidebar-ring: #10b981;
 
-  /* Custom Design System Colors - Dark Navy with Silver/Platinum Gradients */
-  --color-background-primary: #0a1628;
-  --color-background-secondary: #12192a;
+  /* Custom Design System Colors - Emerald Green with Silver/Gold/Copper */
+  --color-background-primary: #0d1f17;
+  --color-background-secondary: #1a2d24;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #d4dce8;
-  --color-text-tertiary: #a8b2c0;
+  --color-text-secondary: #e8f4f0;
+  --color-text-tertiary: #a8c0b8;
   
-  /* Silver/Platinum Gradient System */
+  /* Emerald Green System */
+  --color-emerald: #10b981;
+  --color-emerald-light: #34d399;
+  --color-emerald-dark: #059669;
+  
+  /* Silver System */
   --color-silver: #c0c8d0;
-  --color-silver-light: #d4dce8;
-  --color-silver-lighter: #e8ecf0;
+  --color-silver-light: #e8ecf0;
+  --color-silver-lighter: #f4f6f8;
   --color-platinum: #e8ecf0;
-  --color-platinum-light: #f4f6f8;
   
-  /* Subtle accent colors (minimal green) */
-  --color-accent-subtle: #4a9d8e;
-  --color-accent-glow: rgba(212, 220, 232, 0.15);
+  /* Gold/Copper Accent System */
+  --color-gold: #d4af37;
+  --color-gold-light: #f0d978;
+  --color-copper: #b87333;
+  --color-copper-light: #d4915a;
+  --color-bronze: #cd7f32;
   
-  --color-card-background: #1a2332;
-  --color-card-overlay: rgba(26, 35, 50, 0.9);
+  /* Accent gradients */
+  --color-accent-glow: rgba(16, 185, 129, 0.15);
+  --color-gold-glow: rgba(212, 175, 55, 0.2);
+  
+  --color-card-background: #1a2d24;
+  --color-card-overlay: rgba(26, 45, 36, 0.95);
   
   /* Gradient definitions */
+  --color-gradient-primary-start: #10b981;
+  --color-gradient-primary-mid: #34d399;
+  --color-gradient-primary-end: #6ee7b7;
+  
+  --color-gradient-gold-start: #b87333;
+  --color-gradient-gold-mid: #d4af37;
+  --color-gradient-gold-end: #f0d978;
+  
   --color-gradient-silver-start: #a8b2c0;
   --color-gradient-silver-mid: #c0c8d0;
   --color-gradient-silver-end: #e8ecf0;
   
+  --color-border-emerald: rgba(16, 185, 129, 0.3);
+  --color-border-gold: rgba(212, 175, 55, 0.3);
   --color-border-silver: rgba(192, 200, 208, 0.2);
-  --color-border-silver-bright: rgba(212, 220, 232, 0.4);
 
   /* Typography */
   --font-display: "Inter", sans-serif;
@@ -180,7 +200,7 @@
   }
 
   body {
-    background: linear-gradient(135deg, #0a1628 0%, #12192a 50%, #1a2332 100%);
+    background: linear-gradient(135deg, #0d1f17 0%, #1a2d24 50%, #0f2419 100%);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-body);
@@ -216,7 +236,7 @@
   }
 
   a {
-    color: var(--color-silver-light);
+    color: var(--color-emerald-light);
     text-decoration: none;
   }
 

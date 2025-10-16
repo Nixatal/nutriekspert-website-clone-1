@@ -1,75 +1,86 @@
 "use client";
 
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-const problems = [
-  "Osjećate umor i nedostatak energije?",
-  "Zbunjeni ste raznim savjetima o prehrani?",
-  "Trebate vam individualni pristup?",
-];
-
-const solutions = [
-  "Znanstveno utemeljeni planovi prehrane",
-  "Detaljna analiza vaših potreba",
-  "Kontinuirana podrška i prilagodba",
-  "Rezultati koji se održavaju dugoročno",
-];
 
 const ValueProposition = () => {
   return (
-    <section className="bg-background-secondary py-20">
+    <section className="bg-gradient-to-b from-background-primary to-background-secondary py-20">
       <div className="max-w-screen-xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Problem Side */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Možda vam{" "}
+            <span className="bg-gradient-to-r from-emerald via-gold to-copper bg-clip-text text-transparent">
+              treba stručna pomoć
+            </span>
+          </h2>
+          <p className="text-xl text-silver-light max-w-3xl mx-auto">
+            Suočavate li se s izazovima oko prehrane i zdravlja?
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Challenges */}
           <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-full">
-              <span className="text-amber-400 font-semibold text-sm">MOŽDA VAM TREBA POMOĆ</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-              Suočavate li se s izazovima u prehrani?
-            </h2>
+            <h3 className="text-2xl font-bold text-silver-light mb-6 flex items-center gap-3">
+              <XCircle className="w-8 h-8 text-copper" />
+              Česti Izazovi
+            </h3>
+            
             <div className="space-y-4">
-              {problems.map((problem, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <AlertCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
-                  <p className="text-lg text-silver-light">{problem}</p>
+              {[
+                "Nedostatak energije i kronični umor",
+                "Poteškoće s kontrolom tjelesne težine",
+                "Confusing i kontradiktorni savjeti o prehrani",
+                "Nezadovoljstvo trenutnim rezultatima",
+                "Nedostatak personaliziranog plana",
+                "Neznanje što zaista trebate vašem tijelu"
+              ].map((challenge, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-card-background/60 rounded-xl border border-copper/20 hover:border-copper/40 transition-all duration-300">
+                  <XCircle className="w-5 h-5 text-copper flex-shrink-0 mt-0.5" />
+                  <span className="text-silver-light">{challenge}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Solution Side */}
+          {/* Solutions */}
           <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-silver/10 border border-silver/30 rounded-full">
-              <span className="text-silver-light font-semibold text-sm">OVDJE SMO DA POMOGNEMO</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-              Zajedno ćemo razviti{" "}
-              <span className="bg-gradient-to-r from-silver via-silver-light to-platinum bg-clip-text text-transparent">
-                plan koji odgovara vama
-              </span>
-            </h2>
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <CheckCircle2 className="w-8 h-8 text-emerald-light" />
+              Naša Rješenja
+            </h3>
+            
             <div className="space-y-4">
-              {solutions.map((solution, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-silver-light flex-shrink-0 mt-1" />
-                  <p className="text-lg text-white font-medium">{solution}</p>
+              {[
+                "Individualan plan temeljen na vašim potrebama",
+                "Znanstveno podržani pristup prehrani",
+                "Jasne i praktične preporuke",
+                "Kontinuirana stručna podrška",
+                "Dugoročni održivi rezultati",
+                "Procjena vitamina i minerala s upitnikom"
+              ].map((solution, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-gradient-to-br from-emerald/10 to-gold/5 rounded-xl border border-emerald/30 hover:border-gold/40 transition-all duration-300 hover:scale-105">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-light flex-shrink-0 mt-0.5" />
+                  <span className="text-white font-medium">{solution}</span>
                 </div>
               ))}
             </div>
-            <div className="pt-6">
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-4 text-background-primary text-lg font-bold bg-gradient-to-r from-silver via-silver-light to-platinum rounded-xl hover:brightness-110 transition shadow-lg shadow-silver/20"
-              >
-                Razgovarajmo - Besplatna Konzultacija
-              </Link>
-              <p className="mt-3 text-sm text-silver-light">
-                ✓ Bez obveza • 30 minuta • Personalizirani savjeti
-              </p>
-            </div>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald to-emerald-light rounded-xl text-white font-semibold hover:scale-105 transition-all duration-300 shadow-xl shadow-emerald/30"
+          >
+            Zakaži Besplatnu Konzultaciju
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+          <p className="mt-4 text-silver-light text-sm">
+            Bez obveza • 30 minuta razgovora • Personalizirani savjeti
+          </p>
         </div>
       </div>
     </section>

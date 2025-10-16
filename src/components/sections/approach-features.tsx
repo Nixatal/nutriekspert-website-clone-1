@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fingerprint, Dna, FilePenLine, TrendingUp } from 'lucide-react';
+import { Fingerprint, Dna, FileText, TrendingUp } from 'lucide-react';
 
 interface FeatureCardProps {
   icon: React.ElementType;
@@ -11,54 +11,117 @@ const featuresData: FeatureCardProps[] = [
   {
     icon: Fingerprint,
     title: 'INDIVIDUALNOST',
-    description: 'Nutriekspert pristup je znanstveno utemeljen put do dugoročnih rezultata, prilagođen tvojim potrebama, ciljevima i načinu života.',
+    description: 'Znanstveni pristup koji uzima u obzir vaše jedinstvene potrebe, ciljeve i zdravstveno stanje. Svaki plan je posebno kreiran za vas.',
   },
   {
     icon: Dna,
     title: 'HOLISTIČKI PRISTUP',
-    description: 'U obzir uzimam tvoje zdravlje, ciljeve i način života kako bih osmislio cjelovito rješenje koje će ti pomoći da se osjećaš, izgledaš i funkcioniraš najbolje moguće.',
+    description: 'Uzimamo u obzir sve aspekte vašeg zdravlja - prehranu, životni stil, stres, san i fizičku aktivnost za sveobuhvatne rezultate.',
   },
   {
-    icon: FilePenLine,
+    icon: FileText,
     title: 'DETALJNA ANALIZA',
-    description: 'Koristim najsuvremenije metode – kliničke, biokemijske i genetske testove – kako bih stvorio optimalan plan prehrane.',
+    description: 'Koristimo napredne kliničke, biokemijske i genetske testove za preciznu procjenu vašeg zdravstvenog stanja i potreba.',
   },
   {
     icon: TrendingUp,
     title: 'FOKUS NA REZULTATE',
-    description: 'Svaka preporuka je usmjerena na tvoj uspjeh. U Nutriekspertu gradim dugoročna rješenja koja traju cijeli život.',
+    description: 'Pružamo konkretne, mjerljive preporuke s kontinuiranom podrškom za postizanje i održavanje vaših zdravstvenih ciljeva.',
   },
 ];
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
-  return (
-    <div className="relative bg-card-background rounded-xl p-6 shadow-lg border border-silver/10 flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-silver/20 hover:border-silver/30">
-      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-silver via-silver-light to-platinum rounded-full flex items-center justify-center shadow-lg border border-silver/20">
-        <Icon className="w-8 h-8 text-background-primary" />
-      </div>
-      <h3 className="mt-8 text-2xl font-bold tracking-wider mb-3 uppercase text-white">{title}</h3>
-      <p className="text-silver-light leading-relaxed flex-grow">{description}</p>
-      <div className="w-1/3 h-1 mt-4 bg-gradient-to-r from-silver to-platinum mx-auto rounded-full"></div>
-    </div>
-  );
-};
-
 const ApproachFeatures = () => {
   return (
-    <section className="bg-background-primary py-16">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-white mb-12 pb-16">
-          Ekspertizam u službi tvog zdravlja
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-24">
-          {featuresData.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+    <section className="bg-gradient-to-b from-background-secondary to-background-primary py-20">
+      <div className="max-w-screen-xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Ekspertiza u{" "}
+            <span className="bg-gradient-to-r from-emerald via-gold to-copper bg-clip-text text-transparent">
+              službi vašeg zdravlja
+            </span>
+          </h2>
+          <p className="text-xl text-silver-light max-w-3xl mx-auto">
+            Holistički pristup koji donosi rezultate
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Feature 1 */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald to-gold rounded-2xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-300" />
+            <div className="relative p-8 bg-gradient-to-br from-card-background/80 to-[#1a2d24]/80 rounded-2xl border border-emerald/30 hover:border-gold/40 transition-all duration-300 backdrop-blur-sm shadow-xl hover:scale-105">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-5 bg-gradient-to-br from-emerald/20 to-emerald-dark/20 rounded-full mb-6 border-2 border-emerald/40 group-hover:scale-110 transition-transform">
+                  <Fingerprint className="w-12 h-12 text-emerald-light" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">
+                  INDIVIDUALNOST
+                </h3>
+                <p className="text-silver-light leading-relaxed">
+                  Znanstveni pristup koji uzima u obzir vaše jedinstvene potrebe, ciljeve i zdravstveno stanje. Svaki plan je posebno kreiran za vas.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-emerald to-gold rounded-full mt-6" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold to-copper rounded-2xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-300" />
+            <div className="relative p-8 bg-gradient-to-br from-card-background/80 to-[#1a2d24]/80 rounded-2xl border border-gold/30 hover:border-gold/50 transition-all duration-300 backdrop-blur-sm shadow-xl hover:scale-105">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-5 bg-gradient-to-br from-gold/20 to-copper/20 rounded-full mb-6 border-2 border-gold/40 group-hover:scale-110 transition-transform">
+                  <Dna className="w-12 h-12 text-gold" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">
+                  HOLISTIČKI PRISTUP
+                </h3>
+                <p className="text-silver-light leading-relaxed">
+                  Uzimamo u obzir sve aspekte vašeg zdravlja - prehranu, životni stil, stres, san i fizičku aktivnost za sveobuhvatne rezultate.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-gold to-copper rounded-full mt-6" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald to-emerald-dark rounded-2xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-300" />
+            <div className="relative p-8 bg-gradient-to-br from-card-background/80 to-[#1a2d24]/80 rounded-2xl border border-emerald/30 hover:border-gold/40 transition-all duration-300 backdrop-blur-sm shadow-xl hover:scale-105">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-5 bg-gradient-to-br from-emerald/20 to-emerald-dark/20 rounded-full mb-6 border-2 border-emerald/40 group-hover:scale-110 transition-transform">
+                  <FileText className="w-12 h-12 text-emerald-light" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">
+                  DETALJNA ANALIZA
+                </h3>
+                <p className="text-silver-light leading-relaxed">
+                  Koristimo napredne kliničke, biokemijske i genetske testove za preciznu procjenu vašeg zdravstvenog stanja i potreba.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-emerald to-gold rounded-full mt-6" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 4 */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold to-copper rounded-2xl blur-xl opacity-10 group-hover:opacity-30 transition-all duration-300" />
+            <div className="relative p-8 bg-gradient-to-br from-card-background/80 to-[#1a2d24]/80 rounded-2xl border border-gold/30 hover:border-gold/50 transition-all duration-300 backdrop-blur-sm shadow-xl hover:scale-105">
+              <div className="flex flex-col items-center text-center">
+                <div className="p-5 bg-gradient-to-br from-gold/20 to-copper/20 rounded-full mb-6 border-2 border-gold/40 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-12 h-12 text-gold" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">
+                  FOKUS NA REZULTATE
+                </h3>
+                <p className="text-silver-light leading-relaxed">
+                  Pružamo konkretne, mjerljive preporuke s kontinuiranom podrškom za postizanje i održavanje vaših zdravstvenih ciljeva.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-gold to-copper rounded-full mt-6" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

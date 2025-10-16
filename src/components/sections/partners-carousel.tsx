@@ -76,7 +76,7 @@ const PartnersCarousel = () => {
       const focalLength = canvas.clientWidth;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+      ctx.fillStyle = "rgba(16, 185, 129, 0.6)"; // emerald color
 
       ctx.save();
       ctx.translate(canvas.clientWidth / 2, canvas.clientHeight / 2);
@@ -119,13 +119,13 @@ const PartnersCarousel = () => {
   return (
     <section
       id="partners-section"
-      className="bg-background-primary relative pt-8 pb-16 overflow-x-hidden"
+      className="bg-gradient-to-br from-background-primary via-card-background to-background-primary relative py-20 overflow-x-hidden border-y border-gold/20"
     >
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 z-0 w-full h-full pointer-events-none opacity-30"
       />
-      <div className="absolute inset-0 bg-background-primary/50" />
+      <div className="absolute inset-0 bg-background-primary/60" />
       
       <style>{`
           @keyframes infinite-scroll {
@@ -135,38 +135,47 @@ const PartnersCarousel = () => {
       `}</style>
       
       <div className="relative z-10">
-        <div className="max-w-screen-xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold text-white mb-12 text-center">
-            Moji Partneri
-          </h2>
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]">
-              {partners.map((partner, index) => (
-                <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-card rounded-lg shadow-lg flex items-center justify-center p-6">
-                  <Image
-                    src={partner.src}
-                    alt={partner.alt}
-                    width={200}
-                    height={100}
-                    className="object-contain w-full h-full filter invert"
-                  />
-                </li>
-              ))}
-            </ul>
-            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]" aria-hidden="true">
-              {partners.map((partner, index) => (
-                <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-card rounded-lg shadow-lg flex items-center justify-center p-6">
-                  <Image
-                    src={partner.src}
-                    alt={partner.alt}
-                    width={200}
-                    height={100}
-                    className="object-contain w-full h-full filter invert"
-                  />
-                </li>
-              ))}
-            </ul>
+        <div className="max-w-screen-xl mx-auto px-6 mb-16">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+              Moji{" "}
+              <span className="bg-gradient-to-r from-gold via-gold-light to-copper bg-clip-text text-transparent">
+                Partneri
+              </span>
+            </h2>
+            <p className="text-xl text-silver-light">
+              Pouzdanje vodećih organizacija i sportskih timova
+            </p>
           </div>
+        </div>
+        
+        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]">
+            {partners.map((partner, index) => (
+              <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-gradient-to-br from-card-background to-[#1a2d24] rounded-2xl shadow-2xl flex items-center justify-center p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105">
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={200}
+                  height={100}
+                  className="object-contain w-full h-full filter brightness-0 invert"
+                />
+              </li>
+            ))}
+          </ul>
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]" aria-hidden="true">
+            {partners.map((partner, index) => (
+              <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-gradient-to-br from-card-background to-[#1a2d24] rounded-2xl shadow-2xl flex items-center justify-center p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105">
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={200}
+                  height={100}
+                  className="object-contain w-full h-full filter brightness-0 invert"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
