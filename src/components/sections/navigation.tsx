@@ -49,7 +49,7 @@ export default function Navigation() {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300",
           isScrolled || isMenuOpen
-            ? "bg-background-primary/95 backdrop-blur-sm shadow-lg"
+            ? "bg-background-primary/95 backdrop-blur-sm shadow-lg shadow-silver/5"
             : "bg-transparent",
           isScrolled ? "h-[96px]" : "h-[128px]"
         )}
@@ -74,14 +74,14 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="px-4 py-2 text-lg text-white transition-colors rounded-md hover:text-accent-teal"
+                className="px-4 py-2 text-lg text-white transition-colors rounded-md hover:text-silver-light"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/shop"
-              className="ml-5 px-4 py-2 text-lg font-medium text-white bg-accent-teal rounded-md shadow-lg hover:bg-accent-teal-light transition-colors"
+              className="ml-5 px-4 py-2 text-lg font-medium text-background-primary bg-gradient-to-r from-silver to-platinum rounded-md shadow-lg hover:brightness-110 transition-all"
             >
               Trgovina
             </Link>
@@ -120,7 +120,7 @@ export default function Navigation() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-white hover:text-accent-teal transition-colors"
+                className="text-2xl font-medium text-white hover:text-silver-light transition-colors"
               >
                 {item.label}
               </Link>
@@ -128,7 +128,7 @@ export default function Navigation() {
             <Link
               href="/shop"
               onClick={() => setIsMenuOpen(false)}
-              className="mt-6 px-8 py-3 text-2xl font-medium text-white bg-accent-teal rounded-md shadow-lg hover:bg-accent-teal-light transition-colors"
+              className="mt-6 px-8 py-3 text-2xl font-medium text-background-primary bg-gradient-to-r from-silver to-platinum rounded-md shadow-lg hover:brightness-110 transition-all"
             >
               Trgovina
             </Link>

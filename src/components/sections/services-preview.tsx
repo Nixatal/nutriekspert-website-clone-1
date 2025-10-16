@@ -40,7 +40,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ backgroundImage, title, description, href, buttonText, buttonClasses }: ServiceCardProps) => (
   <div
-    className="relative group rounded-lg shadow-lg overflow-hidden h-[500px] bg-cover bg-center transition-all duration-300 hover:scale-105 hover:shadow-accent-teal/50"
+    className="relative group rounded-lg shadow-lg overflow-hidden h-[500px] bg-cover bg-center transition-all duration-300 hover:scale-105 hover:shadow-silver/30"
     style={{
       backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
       backgroundColor: !backgroundImage ? 'var(--color-card-background)' : undefined,
@@ -50,12 +50,12 @@ const ServiceCard = ({ backgroundImage, title, description, href, buttonText, bu
     <div className="relative z-10 flex flex-col h-full">
       <div className="flex-grow flex flex-col justify-end items-center text-center px-6 pt-10">
         <h3 className="text-3xl font-bold mb-4 text-white">{title}</h3>
-        <p className="text-lg text-silver">{description}</p>
+        <p className="text-lg text-silver-light">{description}</p>
       </div>
       <div className="p-6 flex justify-center items-center">
         <a
           href={href}
-          className={`block w-1/2 text-center text-sm font-medium text-white bg-accent-teal rounded-xl hover:bg-accent-teal-light transition-colors shadow-lg ${buttonClasses}`}
+          className={`block w-1/2 text-center text-sm font-medium text-background-primary bg-gradient-to-r from-silver to-platinum rounded-xl hover:brightness-110 transition-all shadow-lg ${buttonClasses}`}
         >
           {buttonText}
         </a>

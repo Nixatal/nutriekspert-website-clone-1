@@ -31,10 +31,10 @@ const ProcessSteps = () => {
               <br />
               u 3 koraka
             </h2>
-            <div className="w-24 h-1 bg-accent-teal mt-6 mb-8 mx-auto lg:mx-0" />
+            <div className="w-24 h-1 bg-gradient-to-r from-silver to-platinum mt-6 mb-8 mx-auto lg:mx-0 rounded-full" />
             <Link
               href="/shop"
-              className="inline-block bg-accent-teal text-white font-semibold px-12 py-3 rounded-lg shadow-lg hover:bg-accent-teal-light transition-colors"
+              className="inline-block bg-gradient-to-r from-silver to-platinum text-background-primary font-semibold px-12 py-3 rounded-lg shadow-lg hover:brightness-110 transition-all"
             >
               KRENI
             </Link>
@@ -47,7 +47,7 @@ const ProcessSteps = () => {
               alt="Nutrition workspace with DNA helix, fresh produce, and clipboard"
               width={400}
               height={710}
-              className="rounded-xl shadow-2xl shadow-accent-teal/20 object-contain max-h-[700px] w-auto"
+              className="rounded-xl shadow-2xl shadow-silver/10 object-contain max-h-[700px] w-auto"
             />
           </div>
 
@@ -55,12 +55,12 @@ const ProcessSteps = () => {
           <div className="lg:col-span-5 flex flex-col gap-10">
             {stepsData.map((step) => (
               <div key={step.number} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-11 h-11 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex-shrink-0 w-11 h-11 bg-gradient-to-br from-silver to-platinum rounded-full flex items-center justify-center text-background-primary font-bold text-lg shadow-lg">
                   {step.number}
                 </div>
                 <div className="flex-grow">
                   <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-silver leading-relaxed">{step.description}</p>
+                  <p className="text-silver-light leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}

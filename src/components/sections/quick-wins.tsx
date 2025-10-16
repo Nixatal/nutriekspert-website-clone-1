@@ -9,7 +9,7 @@ const quickWins = [
     subtitle: "E-knjiga o Prehrani",
     description: "Preuzmite besplatan vodič s korisnim savjetima",
     cta: "Preuzmi Besplatno",
-    gradient: "from-accent-teal to-accent-cyan",
+    gradient: "from-silver via-silver-light to-platinum",
   },
   {
     icon: Calendar,
@@ -17,7 +17,7 @@ const quickWins = [
     subtitle: "30-Minutni Razgovor",
     description: "Individualni razgovor i personalizirani savjeti",
     cta: "Zakaži Razgovor",
-    gradient: "from-accent-cyan to-accent-teal-light",
+    gradient: "from-platinum via-silver-light to-silver",
   },
   {
     icon: Activity,
@@ -25,7 +25,7 @@ const quickWins = [
     subtitle: "Upitnik za Vitamine",
     description: "Otkrijte potencijalne nedostatke vitamina i minerala",
     cta: "Započni Upitnik",
-    gradient: "from-accent-teal-light to-accent-teal",
+    gradient: "from-silver-light via-platinum to-silver",
   },
 ];
 
@@ -37,7 +37,7 @@ const QuickWins = () => {
           <h2 className="text-4xl font-bold text-white mb-4">
             Započnite s besplatnim resursima
           </h2>
-          <p className="text-xl text-silver">Odaberite način kako želite krenuti:</p>
+          <p className="text-xl text-silver-light">Odaberite način kako želite krenuti:</p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
@@ -46,10 +46,10 @@ const QuickWins = () => {
             return (
               <div
                 key={index}
-                className="relative group bg-card-background rounded-2xl p-8 text-center border border-accent-teal/20 hover:border-accent-teal/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent-teal/20"
+                className="relative group bg-card-background rounded-2xl p-8 text-center border border-silver/20 hover:border-silver/40 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-silver/20"
               >
-                <div className={`mx-auto mb-6 w-20 h-20 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center`}>
-                  <Icon className="w-10 h-10 text-white" />
+                <div className={`mx-auto mb-6 w-20 h-20 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
+                  <Icon className="w-10 h-10 text-background-primary" />
                 </div>
                 
                 <div className="mb-4">
@@ -57,10 +57,10 @@ const QuickWins = () => {
                     {item.title}
                   </p>
                   <h3 className="text-2xl font-bold text-white mb-3">{item.subtitle}</h3>
-                  <p className="text-silver">{item.description}</p>
+                  <p className="text-silver-light">{item.description}</p>
                 </div>
 
-                <button className={`w-full mt-4 px-6 py-3 text-white font-semibold rounded-xl bg-gradient-to-r ${item.gradient} hover:brightness-110 transition shadow-lg`}>
+                <button className={`w-full mt-4 px-6 py-3 text-background-primary font-semibold rounded-xl bg-gradient-to-r ${item.gradient} hover:brightness-110 transition shadow-lg`}>
                   {item.cta}
                 </button>
               </div>
@@ -69,8 +69,8 @@ const QuickWins = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-block px-6 py-3 bg-accent-teal/10 border border-accent-teal/30 rounded-full">
-            <p className="text-accent-teal font-semibold">
+          <div className="inline-block px-6 py-3 bg-silver/5 border border-silver/20 rounded-full">
+            <p className="text-silver-light font-semibold">
               ✓ Bez registracije  •  ✓ Bez obveza  •  ✓ 100% besplatno
             </p>
           </div>

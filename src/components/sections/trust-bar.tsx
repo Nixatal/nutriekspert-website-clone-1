@@ -27,18 +27,18 @@ const trustMetrics = [
 
 const TrustBar = () => {
   return (
-    <section className="bg-gradient-to-r from-accent-teal/10 via-accent-cyan/10 to-accent-teal-light/10 border-y border-accent-teal/30">
+    <section className="bg-gradient-to-r from-silver/5 via-silver-light/5 to-platinum/5 border-y border-silver/20">
       <div className="max-w-screen-xl mx-auto px-4 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {trustMetrics.map((metric, index) => {
             const Icon = metric.icon;
             return (
               <div key={index} className="flex flex-col items-center text-center">
-                <div className="mb-3 p-3 bg-accent-teal/20 rounded-full">
-                  <Icon className="w-6 h-6 text-accent-teal" />
+                <div className="mb-3 p-3 bg-gradient-to-br from-silver/20 to-platinum/20 rounded-full border border-silver/30">
+                  <Icon className="w-6 h-6 text-silver-light" />
                 </div>
                 <p className="text-3xl font-extrabold text-white mb-1">{metric.value}</p>
-                <p className="text-sm text-silver">{metric.label}</p>
+                <p className="text-sm text-silver-light">{metric.label}</p>
               </div>
             );
           })}

@@ -18,10 +18,10 @@ interface StatCardProps {
 
 const StatCard: FC<StatCardProps> = ({ value, label }) => {
   return (
-    <div className="flex justify-center items-center p-6 text-center bg-gradient-to-b from-card-background to-background-secondary rounded-xl">
+    <div className="flex justify-center items-center p-6 text-center bg-gradient-to-b from-card-background to-background-secondary rounded-xl border border-silver/10 hover:border-silver/30 transition-all duration-300">
       <div className="text-white">
-        <p className="mb-2 text-4xl font-extrabold md:text-5xl">{value}</p>
-        <h3 className="text-xl font-semibold text-silver">{label}</h3>
+        <p className="mb-2 text-4xl font-extrabold md:text-5xl bg-gradient-to-br from-silver via-silver-light to-platinum bg-clip-text text-transparent">{value}</p>
+        <h3 className="text-xl font-semibold text-silver-light">{label}</h3>
       </div>
     </div>
   );
@@ -35,7 +35,7 @@ const AboutIntro: FC = () => {
           <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-white md:text-4xl">
             Bok, moje ime je Nikola Talan.
           </h2>
-          <p className="mb-8 font-light lg:text-xl text-silver">
+          <p className="mb-8 font-light lg:text-xl text-silver-light">
             Magistar sam nutricionizma s desetljećem iskustva u radu s klijentima na njihovim prehrambenim i zdravstvenim ciljevima. Moj rad temelji se na znanstvenim načelima, ali i praktičnom iskustvu čime osiguravam dugoročne i održive rezultate.
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
@@ -46,7 +46,7 @@ const AboutIntro: FC = () => {
           <div className="mt-8">
             <Link
               href="/about"
-              className="inline-block px-6 py-3 text-white text-lg font-semibold bg-gradient-to-r from-accent-teal to-accent-cyan rounded-xl hover:brightness-110 transition shadow-lg"
+              className="inline-block px-6 py-3 text-background-primary text-lg font-semibold bg-gradient-to-r from-silver to-platinum rounded-xl hover:brightness-110 transition shadow-lg"
             >
               Saznaj više o meni
             </Link>

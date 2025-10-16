@@ -32,13 +32,13 @@ const featuresData: FeatureCardProps[] = [
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
   return (
-    <div className="relative bg-card-background rounded-xl p-6 shadow-lg flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-accent-teal/50">
-      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-accent-teal to-accent-cyan rounded-full flex items-center justify-center shadow-lg">
-        <Icon className="w-8 h-8 text-white" />
+    <div className="relative bg-card-background rounded-xl p-6 shadow-lg border border-silver/10 flex flex-col text-center transition-transform duration-300 hover:scale-105 hover:shadow-silver/20 hover:border-silver/30">
+      <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-silver via-silver-light to-platinum rounded-full flex items-center justify-center shadow-lg border border-silver/20">
+        <Icon className="w-8 h-8 text-background-primary" />
       </div>
       <h3 className="mt-8 text-2xl font-bold tracking-wider mb-3 uppercase text-white">{title}</h3>
-      <p className="text-silver leading-relaxed flex-grow">{description}</p>
-      <div className="w-1/3 h-1 mt-4 bg-accent-teal mx-auto"></div>
+      <p className="text-silver-light leading-relaxed flex-grow">{description}</p>
+      <div className="w-1/3 h-1 mt-4 bg-gradient-to-r from-silver to-platinum mx-auto rounded-full"></div>
     </div>
   );
 };

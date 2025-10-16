@@ -33,7 +33,7 @@ const ValueProposition = () => {
               {problems.map((problem, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <AlertCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
-                  <p className="text-lg text-silver">{problem}</p>
+                  <p className="text-lg text-silver-light">{problem}</p>
                 </div>
               ))}
             </div>
@@ -41,19 +41,19 @@ const ValueProposition = () => {
 
           {/* Solution Side */}
           <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-accent-teal/20 border border-accent-teal/30 rounded-full">
-              <span className="text-accent-teal font-semibold text-sm">OVDJE SMO DA POMOGNEMO</span>
+            <div className="inline-block px-4 py-2 bg-silver/10 border border-silver/30 rounded-full">
+              <span className="text-silver-light font-semibold text-sm">OVDJE SMO DA POMOGNEMO</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Zajedno ćemo razviti{" "}
-              <span className="bg-gradient-to-r from-accent-teal via-accent-cyan to-accent-teal-light bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-silver via-silver-light to-platinum bg-clip-text text-transparent">
                 plan koji odgovara vama
               </span>
             </h2>
             <div className="space-y-4">
               {solutions.map((solution, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-accent-teal flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-silver-light flex-shrink-0 mt-1" />
                   <p className="text-lg text-white font-medium">{solution}</p>
                 </div>
               ))}
@@ -61,11 +61,11 @@ const ValueProposition = () => {
             <div className="pt-6">
               <Link
                 href="/contact"
-                className="inline-block px-8 py-4 text-white text-lg font-bold bg-gradient-to-r from-accent-teal via-accent-cyan to-accent-teal-light rounded-xl hover:brightness-110 transition shadow-lg shadow-accent-teal/30"
+                className="inline-block px-8 py-4 text-background-primary text-lg font-bold bg-gradient-to-r from-silver via-silver-light to-platinum rounded-xl hover:brightness-110 transition shadow-lg shadow-silver/20"
               >
                 Razgovarajmo - Besplatna Konzultacija
               </Link>
-              <p className="mt-3 text-sm text-silver">
+              <p className="mt-3 text-sm text-silver-light">
                 ✓ Bez obveza • 30 minuta • Personalizirani savjeti
               </p>
             </div>

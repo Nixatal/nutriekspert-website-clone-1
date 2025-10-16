@@ -41,7 +41,7 @@ const InstagramFeed = () => {
               href={post.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden rounded-xl bg-card-background shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-accent-teal/30"
+              className="group relative block aspect-square overflow-hidden rounded-xl bg-card-background shadow-lg border border-silver/10 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-silver/20 hover:border-silver/30"
             >
               <Image
                 src={post.imageSrc}
@@ -55,7 +55,7 @@ const InstagramFeed = () => {
                 <h3 className="font-semibold text-lg leading-tight">
                   {post.caption}
                 </h3>
-                <p className="mt-2 text-sm text-silver">{post.date}</p>
+                <p className="mt-2 text-sm text-silver-light">{post.date}</p>
               </div>
             </a>
           ))}

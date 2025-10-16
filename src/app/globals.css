@@ -1,74 +1,85 @@
+/* Updated: 2025-10-16T15:03:54.428Z */
 /* Updated: 2025-10-15T15:16:34.462Z */
 /* Updated: 2025-10-15T15:16:30.061Z */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
-@custom-variant from-green-900 to-teal-800;
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Shadcn/UI colors - Teal/Green Theme */
-  --color-background: #1a3d3d;
+  /* Shadcn/UI colors - Dark Navy with Silver Accents */
+  --color-background: #0a1628;
   --color-foreground: #ffffff;
 
-  --color-card: #2d5555;
+  --color-card: #1a2332;
   --color-card-foreground: #ffffff;
 
-  --color-popover: #2d5555;
+  --color-popover: #1a2332;
   --color-popover-foreground: #ffffff;
 
-  --color-primary: #4db8a8;
-  --color-primary-foreground: #ffffff;
+  --color-primary: #c0c8d0;
+  --color-primary-foreground: #0a1628;
 
-  --color-secondary: #3a5f5f;
+  --color-secondary: #1e2938;
   --color-secondary-foreground: #ffffff;
 
-  --color-muted: #3a5f5f;
-  --color-muted-foreground: #c0d0d0;
+  --color-muted: #2a3544;
+  --color-muted-foreground: #a8b2c0;
 
-  --color-accent: #5cc5b5;
-  --color-accent-foreground: #ffffff;
+  --color-accent: #d4dce8;
+  --color-accent-foreground: #0a1628;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --color-border: #4db8a8;
-  --color-input: #3a5f5f;
-  --color-ring: #4db8a8;
+  --color-border: #3a4556;
+  --color-input: #2a3544;
+  --color-ring: #c0c8d0;
 
-  --color-chart-1: #5cc5b5;
-  --color-chart-2: #4db8a8;
-  --color-chart-3: #3a8080;
-  --color-chart-4: #2d5555;
-  --color-chart-5: #1a3d3d;
+  --color-chart-1: #d4dce8;
+  --color-chart-2: #c0c8d0;
+  --color-chart-3: #a8b2c0;
+  --color-chart-4: #8090a0;
+  --color-chart-5: #5a6878;
 
-  --color-sidebar: #1a3d3d;
+  --color-sidebar: #0a1628;
   --color-sidebar-foreground: #ffffff;
-  --color-sidebar-primary: #4db8a8;
-  --color-sidebar-primary-foreground: #ffffff;
-  --color-sidebar-accent: #2d5555;
+  --color-sidebar-primary: #c0c8d0;
+  --color-sidebar-primary-foreground: #0a1628;
+  --color-sidebar-accent: #1a2332;
   --color-sidebar-accent-foreground: #ffffff;
-  --color-sidebar-border: #3a5f5f;
-  --color-sidebar-ring: #4db8a8;
+  --color-sidebar-border: #2a3544;
+  --color-sidebar-ring: #c0c8d0;
 
-  /* Custom Design System Colors - Teal/Green Gradient Theme */
-  --color-background-primary: #1a3d3d;
-  --color-background-secondary: #0d2626;
+  /* Custom Design System Colors - Dark Navy with Silver/Platinum Gradients */
+  --color-background-primary: #0a1628;
+  --color-background-secondary: #12192a;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #c0d0d0;
-  --color-text-tertiary: #a0b8b8;
-  --color-accent-teal: #4db8a8;
-  --color-accent-teal-light: #5cc5b5;
-  --color-accent-cyan: #6dd5c3;
-  --color-card-background: #2d5555;
-  --color-card-overlay: rgba(45, 85, 85, 0.8);
-  --color-gradient-teal: #4db8a8;
-  --color-gradient-green: #3a8080;
-  --color-gradient-cyan: #6dd5c3;
-  --color-border-teal-transparent: rgba(77, 184, 168, 0.3);
-  --color-silver: #c0c0c0;
-  --color-silver-light: #e0e0e0;
+  --color-text-secondary: #d4dce8;
+  --color-text-tertiary: #a8b2c0;
+  
+  /* Silver/Platinum Gradient System */
+  --color-silver: #c0c8d0;
+  --color-silver-light: #d4dce8;
+  --color-silver-lighter: #e8ecf0;
+  --color-platinum: #e8ecf0;
+  --color-platinum-light: #f4f6f8;
+  
+  /* Subtle accent colors (minimal green) */
+  --color-accent-subtle: #4a9d8e;
+  --color-accent-glow: rgba(212, 220, 232, 0.15);
+  
+  --color-card-background: #1a2332;
+  --color-card-overlay: rgba(26, 35, 50, 0.9);
+  
+  /* Gradient definitions */
+  --color-gradient-silver-start: #a8b2c0;
+  --color-gradient-silver-mid: #c0c8d0;
+  --color-gradient-silver-end: #e8ecf0;
+  
+  --color-border-silver: rgba(192, 200, 208, 0.2);
+  --color-border-silver-bright: rgba(212, 220, 232, 0.4);
 
   /* Typography */
   --font-display: "Inter", sans-serif;
@@ -169,7 +180,7 @@
   }
 
   body {
-    background: linear-gradient(135deg, #0d2626 0%, #1a3d3d 50%, #2d5555 100%);
+    background: linear-gradient(135deg, #0a1628 0%, #12192a 50%, #1a2332 100%);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-body);
@@ -205,7 +216,7 @@
   }
 
   a {
-    color: var(--color-accent-cyan);
+    color: var(--color-silver-light);
     text-decoration: none;
   }
 
