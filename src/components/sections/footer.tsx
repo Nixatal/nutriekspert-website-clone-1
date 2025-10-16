@@ -1,78 +1,122 @@
-import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, Phone, User } from "lucide-react";
+"use client";
 
-const Footer = () => {
+import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin } from "lucide-react";
+
+const socialLinks = [
+  { icon: Facebook, href: "https://facebook.com/nutriekspert" },
+  { icon: Instagram, href: "https://instagram.com/nutriekspert" },
+  { icon: Linkedin, href: "https://linkedin.com/in/nikolatalan" },
+];
+
+export default function Footer() {
   return (
-    <footer className="bg-background-secondary text-white border-t border-silver/10">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
-          {/* Column 1: Logo, Tagline, Socials */}
-          <div className="lg:col-span-5 flex flex-col space-y-6 items-center lg:items-start text-center lg:text-left">
-            <div className="flex items-center space-x-3">
-              <Image
+    <footer className="relative bg-background-secondary/50 border-t border-gold/10">
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <img
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/cropped-transparent-logo-13.png"
-                alt="NutriEkspert Logo"
-                width={50}
-                height={50}
-                className="h-auto"
+                alt="NutriEkspert"
+                className="h-10 w-auto"
               />
-              <span className="text-3xl font-bold">NutriEkspert</span>
+              <span className="text-xl font-bold text-white">NutriEkspert</span>
             </div>
-            <p className="text-silver-light max-w-xs">
-              Posljednji plan prehrane koji ces trebati.
+            <p className="text-silver-light text-sm leading-relaxed">
+              Posljednji plan prehrane koji ćeš ikada trebati. Znanstveni pristup. 
+              Individualni planovi. Vrhunski rezultati.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://www.facebook.com/nutriekspert" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-silver-light hover:text-platinum transition-colors">
-                <Facebook size={24} />
-              </a>
-               <a href="https://www.linkedin.com/in/nikola-talan-45a304a5/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-silver-light hover:text-platinum transition-colors">
-                <Linkedin size={24} />
-              </a>
-              <a href="https://www.instagram.com/nutriekspert" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-silver-light hover:text-platinum transition-colors">
-                <Instagram size={24} />
-              </a>
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold/20 to-copper/20 border border-gold/30 flex items-center justify-center hover:border-gold hover:scale-110 transition-all duration-300"
+                  >
+                    <Icon className="w-5 h-5 text-gold" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Column 2: Business Info */}
-          <div className="lg:col-span-3 space-y-4 text-center lg:text-left">
-            <h3 className="font-semibold text-white tracking-widest text-sm uppercase">PODACI O OBRTU</h3>
-            <ul className="space-y-3 text-silver-light">
-              <li>Nutriekspert</li>
-              <li>Obrt za nutricionizam</li>
-              <li>Vl. Nikola Talan</li>
-              <li>Ulica Josipa Broza 66, Ivanovec</li>
-            </ul>
+          {/* Business Info Column */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <span className="w-1 h-6 bg-gradient-to-b from-gold to-copper rounded-full" />
+              Podaci o Obrtu
+            </h3>
+            <div className="space-y-4 text-silver-light text-sm">
+              <div>
+                <div className="font-semibold text-white mb-1">Nutriekspert</div>
+                <div>Obrt za nutricionizam</div>
+                <div>Vl. Nikola Talan</div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                <div>
+                  Ulica Josipa Broza 66<br />
+                  Ivanovec, Hrvatska
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Column 3: Contact Info */}
-          <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
-            <h3 className="font-semibold text-white tracking-widest text-sm uppercase">Kontakt</h3>
-            <ul className="space-y-3 text-silver-light">
-              <li className="flex items-center space-x-3 justify-center lg:justify-start">
-                <User size={20} />
-                <span>Nikola Talan</span>
-              </li>
-              <li className="flex items-center space-x-3 justify-center lg:justify-start">
-                <Mail size={20} />
-                <a href="mailto:nikola@nutriekspert.com" className="hover:text-platinum transition-colors">nikola@nutriekspert.com</a>
-              </li>
-              <li className="flex items-center space-x-3 justify-center lg:justify-start">
-                <Phone size={20} />
-                <a href="tel:+385919496590" className="hover:text-platinum transition-colors">+385 91 949 6590</a>
-              </li>
-            </ul>
+          {/* Contact Column */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <span className="w-1 h-6 bg-gradient-to-b from-gold to-copper rounded-full" />
+              Kontakt
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold/20 to-copper/20 flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-gold" />
+                </div>
+                <a
+                  href="mailto:nikola@nutriekspert.com"
+                  className="text-silver-light hover:text-white transition-colors duration-300 text-sm"
+                >
+                  nikola@nutriekspert.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold/20 to-copper/20 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-gold" />
+                </div>
+                <a
+                  href="tel:+385919496590"
+                  className="text-silver-light hover:text-white transition-colors duration-300 text-sm"
+                >
+                  +385 91 949 6590
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-silver/10 pt-8 text-center text-silver-light text-sm">
-          <p>
-            Copyright © 2024 NutriEkspert | Powered by NutriEkspert™
-          </p>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-gold/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-silver">
+            <p>
+              Copyright © {new Date().getFullYear()} NutriEkspert | Powered by NutriEkspert™
+            </p>
+            <div className="flex gap-6">
+              <a href="/privacy" className="hover:text-white transition-colors duration-300">
+                Privatnost
+              </a>
+              <a href="/terms" className="hover:text-white transition-colors duration-300">
+                Uvjeti
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

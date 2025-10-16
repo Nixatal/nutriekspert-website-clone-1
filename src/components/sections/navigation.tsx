@@ -1,140 +1,86 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Početna" },
-  { href: "/about", label: "O Meni" },
-  { href: "/services", label: "Usluge" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Kontakt" },
+  { label: "Početna", href: "/" },
+  { label: "O Meni", href: "/o-meni" },
+  { label: "Usluge", href: "/usluge" },
+  { label: "Blog", href: "/blog" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isMenuOpen]);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header>
-      <nav
-        className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-          isScrolled || isMenuOpen
-            ? "bg-background-primary/95 backdrop-blur-sm shadow-lg shadow-silver/5"
-            : "bg-transparent",
-          isScrolled ? "h-[96px]" : "h-[128px]"
-        )}
-      >
-        <div className="container flex h-full items-center justify-between">
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/Nove-verzije-gradijenta-1760540125288.png"
-              alt="NutriEkspert Logo"
-              width={213}
-              height={128}
-              className={cn(
-                "w-auto transition-all duration-300",
-                isScrolled ? "h-16" : "h-24 md:h-[96px]"
-              )}
-              priority
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background-primary/80 backdrop-blur-xl border-b border-gold/10">
+      <div className="container">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-3 group">
+            <img
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/svgs/transparent-logo-1.svg"
+              alt="NutriEkspert"
+              className="h-10 w-auto group-hover:scale-110 transition-transform duration-300"
             />
-          </Link>
+            <span className="text-xl font-bold text-white">NutriEkspert</span>
+          </a>
 
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-2 text-lg text-white transition-colors rounded-md hover:text-silver-light"
+                className="text-silver hover:text-white font-medium transition-colors duration-300 relative group"
               >
                 {item.label}
-              </Link>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-copper group-hover:w-full transition-all duration-300" />
+              </a>
             ))}
-            <Link
-              href="/shop"
-              className="ml-5 px-4 py-2 text-lg font-medium text-background-primary bg-gradient-to-r from-silver to-platinum rounded-md shadow-lg hover:brightness-110 transition-all"
-            >
-              Trgovina
-            </Link>
           </div>
 
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              aria-label="Open menu"
-              className="p-2 text-white"
-            >
-              <Menu className="h-7 w-7" />
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <button className="px-6 py-3 bg-gradient-to-r from-gold to-copper text-white font-semibold rounded-xl hover:scale-105 hover:shadow-xl hover:shadow-gold/40 transition-all duration-300">
+              Zakaži Konzultaciju
             </button>
           </div>
-        </div>
-      </nav>
 
-      <div
-        className={cn(
-          "fixed inset-0 z-[100] bg-background-primary transition-opacity duration-300 lg:hidden",
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-      >
-        <div className="container flex h-full flex-col items-center justify-center">
+          {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMenuOpen(false)}
-            aria-label="Close menu"
-            className="absolute top-9 right-4 p-2 text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden w-10 h-10 rounded-xl bg-gradient-to-br from-gold/20 to-copper/20 border border-gold/30 flex items-center justify-center"
           >
-            <X className="h-8 w-8" />
+            {isOpen ? (
+              <X className="w-6 h-6 text-gold" />
+            ) : (
+              <Menu className="w-6 h-6 text-gold" />
+            )}
           </button>
-          
-          <div className="flex flex-col items-center space-y-8">
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="lg:hidden py-6 space-y-4 border-t border-gold/10">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-white hover:text-silver-light transition-colors"
+                className="block text-silver hover:text-white font-medium transition-colors duration-300 py-2"
+                onClick={() => setIsOpen(false)}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <Link
-              href="/shop"
-              onClick={() => setIsMenuOpen(false)}
-              className="mt-6 px-8 py-3 text-2xl font-medium text-background-primary bg-gradient-to-r from-silver to-platinum rounded-md shadow-lg hover:brightness-110 transition-all"
-            >
-              Trgovina
-            </Link>
+            <button className="w-full px-6 py-3 bg-gradient-to-r from-gold to-copper text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300">
+              Zakaži Konzultaciju
+            </button>
           </div>
-        </div>
+        )}
       </div>
-    </header>
+    </nav>
   );
 }

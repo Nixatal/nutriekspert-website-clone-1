@@ -1,185 +1,92 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import Image from "next/image";
+import { Building2 } from "lucide-react";
 
 const partners = [
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-1-2.png",
-    alt: "Active Fitness Centar",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-2-3.png",
-    alt: "klikaj.hr",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-3-4.png",
-    alt: "Kinezis Fizioterapija",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-4-5.png",
-    alt: "F@F",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-5-6.png",
-    alt: "Partner 5",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-6-7.png",
-    alt: "Partner 6",
-  },
-  {
-    src: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-7-8.png",
-    alt: "Partner 7",
-  },
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-1-2.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-2-3.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-3-4.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-4-5.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-5-6.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-6-7.png",
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/portfolio-partners-7-8.png",
 ];
 
-const PartnersCarousel = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let stars: { x: number; y: number; z: number }[] = [];
-    let starCount = 400;
-    
-    const resizeCanvas = () => {
-      if (!canvas || !ctx) return;
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-      
-      stars = [];
-      starCount = Math.floor((canvas.clientWidth * canvas.clientHeight) / 2000);
-      const focalLength = canvas.clientWidth;
-      for (let i = 0; i < starCount; i++) {
-        stars[i] = {
-            x: Math.random() * canvas.clientWidth - canvas.clientWidth / 2,
-            y: Math.random() * canvas.clientHeight - canvas.clientHeight / 2,
-            z: Math.random() * focalLength,
-        };
-      }
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas, false);
-
-    const draw = () => {
-      if (!ctx || !canvas) return;
-      const focalLength = canvas.clientWidth;
-      
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(16, 185, 129, 0.6)"; // emerald color
-
-      ctx.save();
-      ctx.translate(canvas.clientWidth / 2, canvas.clientHeight / 2);
-
-      for (let i = 0; i < starCount; i++) {
-        let star = stars[i];
-        star.z -= 0.5;
-
-        if (star.z <= 0) {
-          star.x = Math.random() * canvas.clientWidth - canvas.clientWidth / 2;
-          star.y = Math.random() * canvas.clientHeight - canvas.clientHeight / 2;
-          star.z = focalLength;
-        }
-
-        const k = focalLength / star.z;
-        const px = star.x * k;
-        const py = star.y * k;
-
-        const size = (1 - star.z / focalLength) * 1.5;
-
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.restore();
-    };
-
-    const animate = () => {
-      draw();
-      animationFrameId = window.requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas, false);
-    };
-  }, []);
-
+export default function PartnersCarousel() {
   return (
-    <section
-      id="partners-section"
-      className="bg-gradient-to-br from-background-primary via-card-background to-background-primary relative py-20 overflow-x-hidden border-y border-gold/20"
-    >
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-0 w-full h-full pointer-events-none opacity-30"
-      />
-      <div className="absolute inset-0 bg-background-primary/60" />
-      
-      <style>{`
-          @keyframes infinite-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(calc(-${partners.length} * (300px + 2rem))); }
-          }
-      `}</style>
-      
-      <div className="relative z-10">
-        <div className="max-w-screen-xl mx-auto px-6 mb-16">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              Moji{" "}
-              <span className="bg-gradient-to-r from-gold via-gold-light to-copper bg-clip-text text-transparent">
-                Partneri
-              </span>
-            </h2>
-            <p className="text-xl text-silver-light">
-              Pouzdanje vodećih organizacija i sportskih timova
-            </p>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background-primary via-background-secondary/20 to-background-primary" />
+
+      <div className="container relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold/20 to-copper/20 border border-gold/30 backdrop-blur-sm mb-6">
+            <Building2 className="w-4 h-4 text-gold" />
+            <span className="text-sm font-medium text-gold">Suradnje</span>
           </div>
+          <h2 className="text-4xl lg:text-5xl font-bold">
+            <span className="bg-gradient-to-r from-gold via-copper to-gold-light bg-clip-text text-transparent">
+              Poslovni Partneri
+            </span>
+          </h2>
         </div>
-        
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]">
-            {partners.map((partner, index) => (
-              <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-gradient-to-br from-card-background to-[#1a2d24] rounded-2xl shadow-2xl flex items-center justify-center p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105">
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={200}
-                  height={100}
-                  className="object-contain w-full h-full filter brightness-0 invert"
-                />
-              </li>
-            ))}
-          </ul>
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-[infinite-scroll_40s_linear_infinite]" aria-hidden="true">
-            {partners.map((partner, index) => (
-              <li key={index} className="flex-shrink-0 w-[300px] h-[200px] bg-gradient-to-br from-card-background to-[#1a2d24] rounded-2xl shadow-2xl flex items-center justify-center p-6 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105">
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={200}
-                  height={100}
-                  className="object-contain w-full h-full filter brightness-0 invert"
-                />
-              </li>
-            ))}
-          </ul>
+
+        {/* Carousel Container */}
+        <div className="relative">
+          <div className="overflow-hidden">
+            <div className="flex gap-8 animate-scroll">
+              {/* First set */}
+              {partners.map((partner, index) => (
+                <div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 w-48 h-32 bg-gradient-to-br from-background-secondary/60 to-background-secondary/30 backdrop-blur-xl border border-gold/20 rounded-2xl p-6 flex items-center justify-center hover:border-gold/50 hover:scale-105 transition-all duration-300"
+                >
+                  <img
+                    src={partner}
+                    alt={`Partner ${index + 1}`}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for infinite scroll */}
+              {partners.map((partner, index) => (
+                <div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 w-48 h-32 bg-gradient-to-br from-background-secondary/60 to-background-secondary/30 backdrop-blur-xl border border-gold/20 rounded-2xl p-6 flex items-center justify-center hover:border-gold/50 hover:scale-105 transition-all duration-300"
+                >
+                  <img
+                    src={partner}
+                    alt={`Partner ${index + 1}`}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Gradient Overlays */}
+          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-background-primary to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-background-primary to-transparent pointer-events-none" />
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
-};
-
-export default PartnersCarousel;
+}

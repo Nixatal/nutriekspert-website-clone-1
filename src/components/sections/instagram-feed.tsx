@@ -1,68 +1,104 @@
-import Image from "next/image";
+"use client";
 
-const instagramPosts = [
+import { Instagram, Calendar } from "lucide-react";
+
+const posts = [
   {
-    id: 1,
-    href: "https://www.instagram.com/p/DPMW4UZDHzw/",
-    imageSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-11.jpg",
-    imageAlt: "Post about blood marker ratios and heart health",
-    caption: "Jednostavan omjer izračunat iz standardnih krvnih ...",
-    date: "9/29/2025",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-11.jpg",
+    caption: "Omjer LDL/HDL kolesterola - ključni pokazatelj...",
+    date: "5 dana ago",
   },
   {
-    id: 2,
-    href: "https://www.instagram.com/reel/DPHEbeQDOH8/",
-    imageSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-12.jpg",
-    imageAlt: "Post about 8 tips to strengthen immunity_ with text '6 Savjeta kako ojačati'",
-    caption: "Prehlada i gripa češće nas pogađaju zimi. Razlog? ...",
-    date: "9/27/2025",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-12.jpg",
+    caption: "6 Savjeta kako ojačati imunitet prirodnim putem",
+    date: "1 tjedan ago",
   },
   {
-    id: 3,
-    href: "https://www.instagram.com/p/DPCHZi0jDHX/",
-    imageSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-10.jpg",
-    imageAlt: "Post about cherries and their effect on sleep quality",
-    caption: "Ako tražite prirodnu pomoć za bolji san, znanost s...",
-    date: "9/25/2025",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f37c2340-72df-4d80-975e-c1069e7c98b7-nutriekspert-com/assets/images/medium-10.jpg",
+    caption: "Kvaliteta sna i suplementacija - sve što trebaš znati",
+    date: "2 tjedna ago",
   },
 ];
 
-const InstagramFeed = () => {
+export default function InstagramFeed() {
   return (
-    <section className="bg-background-primary py-16 sm:py-24">
-      <div className="container">
-        <h2 className="text-center text-4xl font-bold text-white mb-16">
-          Instagram Feed
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {instagramPosts.map((post) => (
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+
+      <div className="container relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold/20 to-copper/20 border border-gold/30 backdrop-blur-sm mb-6">
+            <Instagram className="w-4 h-4 text-gold" />
+            <span className="text-sm font-medium text-gold">Društvene Mreže</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-white">Slijedi Me Na </span>
+            <span className="bg-gradient-to-r from-gold via-copper to-gold-light bg-clip-text text-transparent">
+              Instagramu
+            </span>
+          </h2>
+          <p className="text-xl text-silver-light max-w-2xl mx-auto">
+            Dnevni savjeti o prehrani, zdravlju i wellness-u
+          </p>
+        </div>
+
+        {/* Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {posts.map((post, index) => (
             <a
-              key={post.id}
-              href={post.href}
+              key={index}
+              href="https://instagram.com/nutriekspert"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden rounded-xl bg-card-background shadow-lg border border-silver/10 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-silver/20 hover:border-silver/30"
+              className="group relative bg-gradient-to-br from-background-secondary/60 to-background-secondary/30 backdrop-blur-xl border border-gold/20 rounded-2xl overflow-hidden hover:border-gold/50 hover:scale-105 transition-all duration-500"
             >
-              <Image
-                src={post.imageSrc}
-                alt={post.imageAlt}
-                fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 30vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="font-semibold text-lg leading-tight">
-                  {post.caption}
-                </h3>
-                <p className="mt-2 text-sm text-silver-light">{post.date}</p>
+              {/* Image */}
+              <div className="relative aspect-square overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.caption}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background-primary via-background-primary/50 to-transparent opacity-80" />
+                
+                {/* Instagram Icon Overlay */}
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-gradient-to-br from-gold/80 to-copper/80 backdrop-blur-sm flex items-center justify-center">
+                  <Instagram className="w-5 h-5 text-white" />
+                </div>
               </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-white font-medium mb-3 line-clamp-2">
+                  {post.caption}
+                </p>
+                <div className="flex items-center gap-2 text-sm text-silver">
+                  <Calendar className="w-4 h-4" />
+                  <span>{post.date}</span>
+                </div>
+              </div>
+
+              {/* Hover Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/0 to-copper/0 group-hover:from-gold/10 group-hover:to-copper/10 transition-all duration-500 pointer-events-none" />
             </a>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <a
+            href="https://instagram.com/nutriekspert"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gold to-copper text-white font-semibold rounded-xl hover:scale-105 hover:shadow-xl hover:shadow-gold/40 transition-all duration-300"
+          >
+            <Instagram className="w-5 h-5" />
+            <span>Slijedi @nutriekspert</span>
+          </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default InstagramFeed;
+}
